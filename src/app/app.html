@@ -1,246 +1,281 @@
-<div class="container">
-  <header>
-    <img src="assets/profile-rdfu.jpg" alt="Ruide Fu" class="profile-pic" />
-    <h1>Ruide Fu</h1>
-    <div class="subtitle">Ph.D. Candidate in Astrophysics | UNC Chapel Hill</div>
-    <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">
-      Specializing in software systems for telescopes, and astronomy data analysis interface for education.
-      Passionate about bridging the gap between Computer Science and Astronomy.
-    </p>
-    <div class="social-links">
-      <a href="mailto:rfugithub@outlook.com">Email</a>
-      <a href="https://github.com/RuideFu">GitHub</a>
-      <a href="https://skynet.unc.edu">Skynet RTN</a>
-    </div>
-  </header>
-
-  <section id="education">
-    <h2>Education</h2>
-
-    <div class="edu-item">
-      <div class="edu-details">
-        <h3>University of North Carolina at Chapel Hill</h3>
-        <p>Ph.D. in Astrophysics</p>
-      </div>
-      <span class="edu-date">2025 - Present</span>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-details">
-        <h3>University of North Carolina at Chapel Hill</h3>
-        <p>B.S. Mathematics (Pure Math) & B.S. Computer Science</p>
-        <p>Minor in Geography</p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Major GPA: 3.74 | Overall GPA: 3.79 | Phi Beta
-          Kappa</p>
-      </div>
-      <span class="edu-date">2021 - 2025</span>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <h3>Proficient Languages</h3>
-        <div class="skill-tags">
-          <span>Python</span><span>C</span><span>TypeScript</span><span>Java</span><span>SQL</span><span>Shell</span><span>LaTeX</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>Software & Tools</h3>
-        <div class="skill-tags">
-          <span>Git</span><span>Docker</span><span>Angular</span><span>API
-            Design</span><span>Fusion360</span><span>Adobe Suite</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>Domain Knowledge</h3>
-        <div class="skill-tags">
-          <span>Radio Astronomy</span><span>Telescope Networks</span><span>Data
-            Visualization</span><span>Hardware Prototyping</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card" style="margin-top: 3rem; min-height: 200px;">
-      <div class="project-header">
-        <span class="project-title">GitHub Contributions</span>
-      </div>
-      <div class="calendar">
-        Loading the data just for you...
-      </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <h2>Research & Experience</h2>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title"><a href="https://next.skynet.unc.edu">Skynet 2.0</a></span>
-        <span class="project-role">Software Engineer (Radio Lead)</span>
-        <span class="project-date">Apr 2024 - Present</span>
-      </div>
-      <p class="project-desc">
-        Coordinated the radio collaboration for Skynet 2.0. Designed a scalable architecture for new
-        sites/instruments and models to generalize radio astronomy hardware. Currently implementing a new
-        web interface for radio observation.
-      </p>
-      <div class="project-tags"><span class="tag">System Design</span><span class="tag">API</span><span class="tag">Web
-          Dev</span></div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title"><a href="https://astromancer.skynet.unc.edu">Astromancer</a></span>
-        <span class="project-role">Lead Developer</span>
-        <span class="project-date">May 2023 - Dec 2023</span>
-        <a href="https://github.com/SkynetRTN/astromancer" class="github-icon-link" target="_blank"
-          aria-label="View Source on GitHub">
-          <svg class="github-icon-svg" viewBox="0 0 24 24">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#education" (click)="drawer.toggle()">Education</a>
+      <a mat-list-item href="#skills" (click)="drawer.toggle()">Skills</a>
+      <a mat-list-item href="#experience" (click)="drawer.toggle()">Experience</a>
+      <a mat-list-item href="#publications" (click)="drawer.toggle()">Publications</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" mat-button (click)="drawer.toggle()" aria-label="Toggle menu"
+        style="padding-left: 0.5rem; padding-right: 0.5rem; min-width: auto;">
+        <img src="assets/favicon-32x32.png" alt="Menu"
+          style="width: 32px; height: 32px; vertical-align: middle; margin-right: 4px; border-radius: 4px;">
+        <mat-icon style="vertical-align: middle;">arrow_drop_down</mat-icon>
+      </button>
+      <div class="social-links-toolbar">
+        <a mat-icon-button href="mailto:rfugithub@outlook.com" aria-label="Send email">
+          <mat-icon>email</mat-icon>
+        </a>
+        <a mat-icon-button href="https://github.com/RuideFu" aria-label="View on GitHub">
+          <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: currentColor; vertical-align: top;">
             <path
               d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.419-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
           </svg>
         </a>
       </div>
-      <p class="project-desc">
-        A complete reimagination of the Skynet Plotting Tool. Designed a modular, scalable architecture and
-        improved accessibility. Serving 4,900+ users since Fall 2023.
-      </p>
-      <div class="project-tags"><span class="tag">Software Architecture</span><span class="tag">UX/UI</span>
-      </div>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="toggleTheme()" aria-label="Toggle dark mode">
+        <mat-icon>{{ isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="container">
+      <header>
+        <img src="assets/profile-rdfu.jpg" alt="Ruide Fu" class="profile-pic" />
+        <h1>Ruide Fu</h1>
+        <div class="subtitle">Ph.D. Candidate in Astrophysics | UNC Chapel Hill</div>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">
+          Specializing in software systems for telescopes, and astronomy data analysis interface for education.
+          Passionate about bridging the gap between Computer Science and Astronomy.
+        </p>
+        <!-- Removed social links from here as they are in the toolbar/footer or can remain if desired, keeping for now but simplified -->
+      </header>
+
+      <section id="education">
+        <h2>Education</h2>
+
+        <div class="edu-item">
+          <div class="edu-details">
+            <h3>University of North Carolina at Chapel Hill</h3>
+            <p>Ph.D. in Astrophysics</p>
+          </div>
+          <span class="edu-date">2025 - Present</span>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-details">
+            <h3>University of North Carolina at Chapel Hill</h3>
+            <p>B.S. Mathematics (Pure Math) & B.S. Computer Science</p>
+            <p>Minor in Geography</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Major GPA: 3.74 | Overall GPA: 3.79 | Phi Beta
+              Kappa</p>
+          </div>
+          <span class="edu-date">2021 - 2025</span>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Proficient Languages</h3>
+            <div class="skill-tags">
+              <span>Python</span><span>C</span><span>TypeScript</span><span>Java</span><span>SQL</span><span>Shell</span><span>LaTeX</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Software & Tools</h3>
+            <div class="skill-tags">
+              <span>Git</span><span>Docker</span><span>Angular</span><span>API
+                Design</span><span>Fusion360</span><span>Adobe Suite</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Domain Knowledge</h3>
+            <div class="skill-tags">
+              <span>Radio Astronomy</span><span>Telescope Networks</span><span>Data
+                Visualization</span><span>Hardware Prototyping</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" style="margin-top: 3rem; min-height: 200px;">
+          <div class="project-header">
+            <span class="project-title">GitHub Contributions</span>
+          </div>
+          <div class="calendar">
+            Loading the data just for you...
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Research & Experience</h2>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title"><a href="https://next.skynet.unc.edu">Skynet 2.0</a></span>
+            <span class="project-role">Software Engineer (Radio Lead)</span>
+            <span class="project-date">Apr 2024 - Present</span>
+          </div>
+          <p class="project-desc">
+            Coordinated the radio collaboration for Skynet 2.0. Designed a scalable architecture for new
+            sites/instruments and models to generalize radio astronomy hardware. Currently implementing a new
+            web interface for radio observation.
+          </p>
+          <div class="project-tags"><span class="tag">System Design</span><span class="tag">API</span><span
+              class="tag">Web
+              Dev</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title"><a href="https://astromancer.skynet.unc.edu">Astromancer</a></span>
+            <span class="project-role">Lead Developer</span>
+            <span class="project-date">May 2023 - Dec 2023</span>
+            <a href="https://github.com/SkynetRTN/astromancer" class="github-icon-link" target="_blank"
+              aria-label="View Source on GitHub">
+              <svg class="github-icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.419-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </a>
+          </div>
+          <p class="project-desc">
+            A complete reimagination of the Skynet Plotting Tool. Designed a modular, scalable architecture and
+            improved accessibility. Serving 4,900+ users since Fall 2023.
+          </p>
+          <div class="project-tags"><span class="tag">Software Architecture</span><span class="tag">UX/UI</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">Astronomicon</span>
+            <span class="project-role">Lead Developer</span>
+            <span class="project-date">Jan 2024 - Mar 2024</span>
+          </div>
+          <p class="project-desc">
+            Designed architecture and oversaw development of a web-based citizen science platform. Allows users
+            to contribute analysis results from Astromancer to a collective database.
+          </p>
+          <div class="project-tags"><span class="tag">Citizen Science</span><span class="tag">Full
+              Stack</span><span class="tag">Database</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">Radio Cartographer</span>
+            <span class="project-role">Developer</span>
+            <span class="project-date">Dec 2022</span>
+            <a href="https://github.com/SkynetRTN/radio-cartographer" class="github-icon-link" target="_blank"
+              aria-label="View Source on GitHub">
+              <svg class="github-icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.419-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </a>
+          </div>
+          <p class="project-desc">
+            Updated radio cartography algorithms for single-dish maps. Implemented data management services to
+            transfer radio map data from Green Bank Observatory to UNC Skynet.
+          </p>
+          <div class="project-tags"><span class="tag">Algorithm Optimization</span><span class="tag">Data
+              Management</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">Gamma Ray Burst Followup</span>
+            <span class="project-role">Researcher</span>
+            <span class="project-date">Aug 2023</span>
+          </div>
+          <p class="project-desc">
+            Conducted rapid-response observations of GRBs detected by NASA's SWIFT spacecraft using Skynet.
+            Collaborated with the team to contribute to NASA's General Coordinate Network (GCN).
+          </p>
+          <div class="project-tags"><span class="tag">Observational Astronomy</span><span class="tag">NASA
+              GCN</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">Bing Wallpaper for Mac with GUI</span>
+            <span class="project-role">Personal Project</span>
+            <span class="project-date">June 2021</span>
+            <a href="https://github.com/RuideFu/Bing-Wallpaper-For-Mac-4K-with-GUI" class="github-icon-link"
+              target="_blank" aria-label="View Source on GitHub">
+              <svg class="github-icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.419-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </a>
+          </div>
+          <p class="project-desc">
+            A desktop client (menubar app) of Bing Wallpaper for MacOS, written in Swift.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Swift</span><span class="tag">MacOS</span><span class="tag">GUI</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education & Outreach</h2>
+        <ul class="pub-list">
+          <li>
+            <span class="pub-title">ASTR 100L Instructor</span>
+            <span class="pub-authors">Fall 2025</span>
+            <span class="pub-venue">Led lab sections for ASTR 100L, an introductory astronomy course.</span>
+          </li>
+          <li>
+            <span class="pub-title"><a href="https://www.danreichart.com/erira">ERIRA Instructor (Green Bank
+                Observatory)</a></span>
+            <span class="pub-authors">August 2025, June 2024, August 2025</span>
+            <span class="pub-venue">Instructed students on 40ft/20m radio telescopes. Led undergraduate research
+              teams in instrumentation and software projects.</span>
+          </li>
+          <li>
+            <span class="pub-title"><a href="https://skynet.unc.edu/guestnight">Morehead Guest Night
+                Operator</a></span>
+            <span class="pub-authors">Fall 2022 - Present</span>
+            <span class="pub-venue">Bi-weekly science outreach, operating telescopes, and explaining astronomy
+              research to the public.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section id="publications">
+        <h2>Selected Publications & Presentations</h2>
+        <ul class="pub-list">
+          <li>
+            <span class="pub-title"><a href="https://astromancer.skynet.unc.edu/cluster" target="_blank">Skynet
+                Cluster Pro
+                Plus: An Interactive Web Application for Stellar Astronomy Education</a></span>
+            <span class="pub-authors">Janzen, Fu, Reichart, et al.</span>
+            <span class="pub-venue"><a href="https://doi.org/10.32374/AEJ.AECON.2023.110aepw" target="_blank">Astronomy
+                Education Journal (2024). DOI: 10.32374/AEJ.AECON.2023.110aepw</a></span>
+          </li>
+          <li>
+            <span class="pub-title">Next-Level, Robotic Telescope-Based Observing Experiences... Year 1
+              Report</span>
+            <span class="pub-authors">Reichart, Haislip, Fu, et al.</span>
+            <span class="pub-venue"><a href="https://arxiv.org/abs/2304.02545" target="_blank">arXiv:2304.02545
+                (2023)</a></span>
+          </li>
+        </ul>
+
+        <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1rem; color: var(--text-muted);">Recent GCN
+          Circulars</h3>
+        <div style="font-size: 0.9rem; color: var(--text-muted);">
+          <p>Contributor to numerous NASA GCN Circulars regarding Gamma Ray Burst observations, including:</p>
+          <ul style="margin-top: 0.5rem; list-style: disc; margin-left: 1.5rem;">
+            <li>GRB 240825A (Circular 37276)</li>
+            <li>GRB 240809A (Circular 37114)</li>
+            <li>GRB 240529A (Circular 36568)</li>
+            <li>And others (2023-2024)</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        <p>&copy; 2025 Ruide Fu.</p>
+      </footer>
     </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title">Astronomicon</span>
-        <span class="project-role">Lead Developer</span>
-        <span class="project-date">Jan 2024 - Mar 2024</span>
-      </div>
-      <p class="project-desc">
-        Designed architecture and oversaw development of a web-based citizen science platform. Allows users
-        to contribute analysis results from Astromancer to a collective database.
-      </p>
-      <div class="project-tags"><span class="tag">Citizen Science</span><span class="tag">Full
-          Stack</span><span class="tag">Database</span></div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title">Radio Cartographer</span>
-        <span class="project-role">Developer</span>
-        <span class="project-date">Dec 2022</span>
-        <a href="https://github.com/SkynetRTN/radio-cartographer" class="github-icon-link" target="_blank"
-          aria-label="View Source on GitHub">
-          <svg class="github-icon-svg" viewBox="0 0 24 24">
-            <path
-              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.419-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-          </svg>
-        </a>
-      </div>
-      <p class="project-desc">
-        Updated radio cartography algorithms for single-dish maps. Implemented data management services to
-        transfer radio map data from Green Bank Observatory to UNC Skynet.
-      </p>
-      <div class="project-tags"><span class="tag">Algorithm Optimization</span><span class="tag">Data
-          Management</span></div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title">Gamma Ray Burst Followup</span>
-        <span class="project-role">Researcher</span>
-        <span class="project-date">Aug 2023</span>
-      </div>
-      <p class="project-desc">
-        Conducted rapid-response observations of GRBs detected by NASA's SWIFT spacecraft using Skynet.
-        Collaborated with the team to contribute to NASA's General Coordinate Network (GCN).
-      </p>
-      <div class="project-tags"><span class="tag">Observational Astronomy</span><span class="tag">NASA
-          GCN</span></div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-title">Bing Wallpaper for Mac with GUI</span>
-        <span class="project-role">Personal Project</span>
-        <span class="project-date">June 2021</span>
-        <a href="https://github.com/RuideFu/Bing-Wallpaper-For-Mac-4K-with-GUI" class="github-icon-link" target="_blank"
-          aria-label="View Source on GitHub">
-          <svg class="github-icon-svg" viewBox="0 0 24 24">
-            <path
-              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.419-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-          </svg>
-        </a>
-      </div>
-      <p class="project-desc">
-        A desktop client (menubar app) of Bing Wallpaper for MacOS, written in Swift.
-      </p>
-      <div class="project-tags">
-        <span class="tag">Swift</span><span class="tag">MacOS</span><span class="tag">GUI</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="education">
-    <h2>Education & Outreach</h2>
-    <ul class="pub-list">
-      <li>
-        <span class="pub-title">ASTR 100L Instructor</span>
-        <span class="pub-authors">Fall 2025</span>
-        <span class="pub-venue">Led lab sections for ASTR 100L, an introductory astronomy course.</span>
-      </li>
-      <li>
-        <span class="pub-title"><a href="https://www.danreichart.com/erira">ERIRA Instructor (Green Bank
-            Observatory)</a></span>
-        <span class="pub-authors">August 2025, June 2024, August 2025</span>
-        <span class="pub-venue">Instructed students on 40ft/20m radio telescopes. Led undergraduate research
-          teams in instrumentation and software projects.</span>
-      </li>
-      <li>
-        <span class="pub-title"><a href="https://skynet.unc.edu/guestnight">Morehead Guest Night
-            Operator</a></span>
-        <span class="pub-authors">Fall 2022 - Present</span>
-        <span class="pub-venue">Bi-weekly science outreach, operating telescopes, and explaining astronomy
-          research to the public.</span>
-      </li>
-    </ul>
-  </section>
-
-  <section id="publications">
-    <h2>Selected Publications & Presentations</h2>
-    <ul class="pub-list">
-      <li>
-        <span class="pub-title"><a href="https://astromancer.skynet.unc.edu/cluster" target="_blank">Skynet
-            Cluster Pro
-            Plus: An Interactive Web Application for Stellar Astronomy Education</a></span>
-        <span class="pub-authors">Janzen, Fu, Reichart, et al.</span>
-        <span class="pub-venue"><a href="https://doi.org/10.32374/AEJ.AECON.2023.110aepw" target="_blank">Astronomy
-            Education Journal (2024). DOI: 10.32374/AEJ.AECON.2023.110aepw</a></span>
-      </li>
-      <li>
-        <span class="pub-title">Next-Level, Robotic Telescope-Based Observing Experiences... Year 1
-          Report</span>
-        <span class="pub-authors">Reichart, Haislip, Fu, et al.</span>
-        <span class="pub-venue"><a href="https://arxiv.org/abs/2304.02545" target="_blank">arXiv:2304.02545
-            (2023)</a></span>
-      </li>
-    </ul>
-
-    <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1rem; color: var(--text-muted);">Recent GCN
-      Circulars</h3>
-    <div style="font-size: 0.9rem; color: var(--text-muted);">
-      <p>Contributor to numerous NASA GCN Circulars regarding Gamma Ray Burst observations, including:</p>
-      <ul style="margin-top: 0.5rem; list-style: disc; margin-left: 1.5rem;">
-        <li>GRB 240825A (Circular 37276)</li>
-        <li>GRB 240809A (Circular 37114)</li>
-        <li>GRB 240529A (Circular 36568)</li>
-        <li>And others (2023-2024)</li>
-      </ul>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Ruide Fu.</p>
-  </footer>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

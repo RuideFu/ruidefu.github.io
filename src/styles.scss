@@ -33,19 +33,65 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--mat-sys-background);
+  color: var(--mat-sys-on-background);
+  line-height: 1.6;
 }
 
-/* CSS VARIABLES & RESET */
-:root {
-  --bg-color: #0f172a;
-  /* Dark slate - Space theme */
-  --card-bg: #1e293b;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --accent: #38bdf8;
-  /* Light Blue */
-  --accent-hover: #0ea5e9;
-  --border: #334155;
+body.dark,
+body.dark .sidenav-container,
+body.dark .mat-drawer-container {
+  background-color: #141313;
+  color: #e5e2e1;
+}
+
+/* TOOLBAR STYLES */
+mat-toolbar {
+  background-color: var(--mat-sys-primary) !important;
+  color: var(--mat-sys-on-primary) !important;
+}
+
+mat-toolbar .mat-icon {
+  color: var(--mat-sys-on-primary) !important;
+}
+
+mat-toolbar a,
+mat-toolbar span {
+  color: var(--mat-sys-on-primary) !important;
+}
+
+/* SIDENAV STYLES */
+.sidenav {
+  background-color: var(--mat-sys-surface-container) !important;
+  border-right: 1px solid var(--mat-sys-outline-variant);
+}
+
+/* DARK MODE OVERRIDES */
+body.dark mat-toolbar {
+  background-color: #262f50 !important;
+}
+
+body.dark mat-toolbar,
+body.dark mat-toolbar .mat-button,
+body.dark mat-toolbar .mat-icon-button,
+body.dark mat-toolbar .mat-icon,
+body.dark mat-toolbar a,
+body.dark mat-toolbar span {
+  color: #e5e2e1 !important;
+}
+
+body.dark .sidenav {
+  background-color: #1c1b1b !important;
+  border-right: 1px solid #46464b;
+}
+
+/* SIDENAV TEXT COLORS */
+.sidenav .mdc-list-item__primary-text {
+  color: var(--mat-sys-on-surface) !important;
+}
+
+body.dark .sidenav .mdc-list-item__primary-text {
+  color: #e5e2e1 !important;
 }
 
 * {
@@ -54,21 +100,15 @@ body {
   padding: 0;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  line-height: 1.6;
-}
-
 a {
   text-decoration: none;
-  color: var(--accent);
+  color: var(--mat-sys-primary);
   transition: 0.3s;
 }
 
 a:hover {
-  color: var(--accent-hover);
+  color: var(--mat-sys-inverse-primary);
+  /* Hover state */
 }
 
 ul {
@@ -86,7 +126,7 @@ ul {
 header {
   text-align: center;
   margin-bottom: 4rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
   padding-bottom: 2rem;
 }
 
@@ -96,7 +136,7 @@ header {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1.5rem;
-  border: 3px solid var(--accent);
+  border: 3px solid var(--mat-sys-primary);
 }
 
 h1 {
@@ -106,7 +146,7 @@ h1 {
 }
 
 .subtitle {
-  color: var(--text-muted);
+  color: var(--mat-sys-on-surface-variant);
   font-size: 1.1rem;
   margin-bottom: 1rem;
 }
@@ -120,9 +160,16 @@ h1 {
 
 .social-links a {
   padding: 0.5rem 1rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--mat-sys-outline);
   border-radius: 6px;
   font-size: 0.9rem;
+  color: var(--mat-sys-on-surface);
+}
+
+.social-links a:hover {
+  background-color: var(--mat-sys-surface-container-high);
+  border-color: var(--mat-sys-primary);
+  color: var(--mat-sys-primary);
 }
 
 /* SECTIONS */
@@ -132,10 +179,10 @@ section {
 
 h2 {
   font-size: 1.5rem;
-  border-left: 4px solid var(--accent);
+  border-left: 4px solid var(--mat-sys-primary);
   padding-left: 1rem;
   margin-bottom: 1.5rem;
-  color: var(--text-main);
+  color: var(--mat-sys-on-surface);
 }
 
 /* EDUCATION GRID */
@@ -151,19 +198,19 @@ h2 {
 }
 
 .edu-details p {
-  color: var(--text-muted);
+  color: var(--mat-sys-on-surface-variant);
   font-size: 0.95rem;
 }
 
 .edu-date {
-  color: var(--accent);
+  color: var(--mat-sys-primary);
   font-family: monospace;
 }
 
 /* EXPERIENCE CARDS */
 .project-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  background: var(--mat-sys-surface-container);
+  border: 1px solid var(--mat-sys-outline-variant);
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
@@ -180,11 +227,11 @@ h2 {
 .project-title {
   font-weight: bold;
   font-size: 1.1rem;
-  color: #fff;
+  color: var(--mat-sys-on-surface);
 }
 
 .project-role {
-  color: var(--accent);
+  color: var(--mat-sys-primary);
   font-size: 0.9rem;
   margin-right: auto;
   padding-left: 10px;
@@ -192,13 +239,13 @@ h2 {
 
 .project-date {
   font-family: monospace;
-  color: var(--text-muted);
+  color: var(--mat-sys-on-surface-variant);
   font-size: 0.85rem;
 }
 
 .project-desc {
   font-size: 0.95rem;
-  color: #cbd5e1;
+  color: var(--mat-sys-on-surface-variant);
   margin-bottom: 0.5rem;
 }
 
@@ -210,8 +257,8 @@ h2 {
 }
 
 .tag {
-  background: rgba(56, 189, 248, 0.1);
-  color: var(--accent);
+  background: var(--mat-sys-secondary-container);
+  color: var(--mat-sys-on-secondary-container);
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   font-size: 0.75rem;
@@ -223,12 +270,12 @@ h2 {
   align-items: center;
   margin-left: 12px;
   /* Space between date and icon */
-  color: var(--text-muted);
+  color: var(--mat-sys-on-surface-variant);
   transition: color 0.3s;
 }
 
 .github-icon-link:hover {
-  color: var(--accent);
+  color: var(--mat-sys-primary);
 }
 
 .github-icon-svg {
@@ -241,7 +288,7 @@ h2 {
 .pub-list li {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
 }
 
 .pub-title {
@@ -251,13 +298,13 @@ h2 {
 }
 
 .pub-authors {
-  color: var(--text-muted);
+  color: var(--mat-sys-on-surface-variant);
   font-size: 0.9rem;
   display: block;
 }
 
 .pub-venue {
-  color: var(--accent);
+  color: var(--mat-sys-secondary);
   font-size: 0.85rem;
   font-style: italic;
 }
@@ -271,9 +318,9 @@ h2 {
 
 .skill-category h3 {
   font-size: 1rem;
-  color: var(--text-muted);
+  color: var(--mat-sys-on-surface-variant);
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
   padding-bottom: 0.25rem;
 }
 
@@ -281,18 +328,19 @@ h2 {
   display: inline-block;
   margin: 0.2rem;
   padding: 0.2rem 0.5rem;
-  background: var(--border);
+  background: var(--mat-sys-surface-container-high);
   border-radius: 4px;
   font-size: 0.85rem;
+  color: var(--mat-sys-on-surface);
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  color: var(--text-muted);
+  color: var(--mat-sys-on-surface-variant);
   padding: 2rem 0;
   font-size: 0.9rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--mat-sys-outline-variant);
 }
 
 @media (max-width: 600px) {
@@ -317,53 +365,79 @@ footer {
 .calendar .text-muted,
 .calendar .contrib-column,
 .calendar .contrib-footer {
-  color: var(--text-muted) !important;
+  color: var(--mat-sys-on-surface-variant) !important;
 }
 
 .calendar a {
-  color: var(--accent) !important;
+  color: var(--mat-sys-primary) !important;
 }
 
 /* 3. Theme the Tooltips (using Tippy.js standard classes) */
 .tippy-box {
-  background-color: var(--card-bg) !important;
-  color: var(--text-main) !important;
-  border: 1px solid var(--accent);
+  background-color: var(--mat-sys-surface-container-high) !important;
+  color: var(--mat-sys-on-surface) !important;
+  border: 1px solid var(--mat-sys-primary);
   border-radius: 4px;
 }
 
 /* Arrow color to match border */
 .tippy-arrow {
-  color: var(--accent);
+  color: var(--mat-sys-primary);
 }
 
 /* 4. Theme the Squares (Blue Accent) */
 .js-calendar-graph-svg text.Month,
 .js-calendar-graph-svg text.wday {
-  fill: var(--text-muted) !important;
+  fill: var(--mat-sys-on-surface-variant) !important;
   font-size: 10px;
 }
 
 .ContributionCalendar-day[data-level="0"] {
-  fill: #334155;
+  fill: var(--mat-sys-surface-container-highest);
 }
 
 .ContributionCalendar-day[data-level="1"] {
-  fill: #0e4a6b;
+  fill: color-mix(in srgb, var(--mat-sys-primary) 30%, var(--mat-sys-surface-container-highest));
 }
 
 .ContributionCalendar-day[data-level="2"] {
-  fill: #187ba8;
+  fill: color-mix(in srgb, var(--mat-sys-primary) 50%, var(--mat-sys-surface-container-highest));
 }
 
 .ContributionCalendar-day[data-level="3"] {
-  fill: #299bc4;
+  fill: color-mix(in srgb, var(--mat-sys-primary) 70%, var(--mat-sys-surface-container-highest));
 }
 
 .ContributionCalendar-day[data-level="4"] {
-  fill: #38bdf8;
+  fill: var(--mat-sys-primary);
 }
 
 .contrib-number {
-  color: var(--text-muted) !important;
+  color: var(--mat-sys-on-surface-variant) !important;
+}
+
+/* DARK MODE CONTENT TEXT OVERRIDES */
+body.dark h1,
+body.dark h2,
+body.dark .project-title,
+body.dark .pub-title,
+body.dark .skill-category h3 {
+  color: #e5e2e1 !important;
+}
+
+body.dark .subtitle,
+body.dark .edu-details p,
+body.dark .project-role,
+body.dark .project-date,
+body.dark .project-desc,
+body.dark .pub-authors,
+body.dark .pub-venue,
+body.dark footer {
+  color: #c7c6cb !important;
+}
+
+body.dark .tag,
+body.dark .skill-tags span {
+  background-color: #3c4568 !important;
+  color: #e5e2e1 !important;
 }

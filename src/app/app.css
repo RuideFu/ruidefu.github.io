@@ -1,0 +1,26 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.social-links-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.social-links-toolbar a {
+  margin-left: 8px;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
