@@ -1,3 +1,40 @@
+@use "@angular/material" as mat;
+/* Import the tokens SCSS which applies the specific variable overrides */
+@use "../tokens.scss" as tokens;
+
+/* Include the core styles */
+@include mat.core();
+
+/* Define a base theme. The color values here will be overridden by tokens.scss */
+$theme: mat.define-theme((color: (theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: (brand-family: 'Roboto Mono',
+        plain-family: 'Roboto',
+      ),
+      density: (scale: 0,
+      )));
+
+/* Apply the component themes */
+:root {
+  @include mat.all-component-themes($theme);
+}
+
+/* Apply the overrides */
+@include tokens.init-tokens();
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 /* CSS VARIABLES & RESET */
 :root {
   --bg-color: #0f172a;
