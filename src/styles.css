@@ -1,0 +1,332 @@
+/* CSS VARIABLES & RESET */
+:root {
+  --bg-color: #0f172a;
+  /* Dark slate - Space theme */
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  /* Light Blue */
+  --accent-hover: #0ea5e9;
+  --border: #334155;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: 0.3s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+ul {
+  list-style: none;
+}
+
+/* LAYOUT */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2rem;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 3px solid var(--accent);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* SECTIONS */
+section {
+  margin-bottom: 4rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+/* EDUCATION GRID */
+.edu-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.edu-details h3 {
+  font-size: 1.1rem;
+}
+
+.edu-details p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.edu-date {
+  color: var(--accent);
+  font-family: monospace;
+}
+
+/* EXPERIENCE CARDS */
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.project-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.project-role {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-right: auto;
+  padding-left: 10px;
+}
+
+.project-date {
+  font-family: monospace;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.project-desc {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.tag {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* ADDED STYLE FOR GITHUB ICON */
+.github-icon-link {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+  /* Space between date and icon */
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+
+.github-icon-link:hover {
+  color: var(--accent);
+}
+
+.github-icon-svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* PUBLICATIONS */
+.pub-list li {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.pub-title {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.pub-authors {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  display: block;
+}
+
+.pub-venue {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.skill-category h3 {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25rem;
+}
+
+.skill-tags span {
+  display: inline-block;
+  margin: 0.2rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--border);
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+  .project-header {
+    flex-direction: column;
+  }
+
+  .project-role {
+    padding-left: 0;
+  }
+}
+
+/* 1. Fix the Graph Layout */
+.calendar {
+  border: none !important;
+  width: 100%;
+  min-height: 150px;
+}
+
+/* 2. Make the "Summary" text visible (was invisible dark grey) */
+.calendar .text-gray,
+.calendar .text-muted,
+.calendar .contrib-column,
+.calendar .contrib-footer {
+  color: var(--text-muted) !important;
+}
+
+.calendar a {
+  color: var(--accent) !important;
+}
+
+/* 3. Theme the Tooltips (using Tippy.js standard classes) */
+.tippy-box {
+  background-color: var(--card-bg) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+}
+
+/* Arrow color to match border */
+.tippy-arrow {
+  color: var(--accent);
+}
+
+/* 4. Theme the Squares (Blue Accent) */
+.js-calendar-graph-svg text.Month,
+.js-calendar-graph-svg text.wday {
+  fill: var(--text-muted) !important;
+  font-size: 10px;
+}
+
+.ContributionCalendar-day[data-level="0"] {
+  fill: #334155;
+}
+
+.ContributionCalendar-day[data-level="1"] {
+  fill: #0e4a6b;
+}
+
+.ContributionCalendar-day[data-level="2"] {
+  fill: #187ba8;
+}
+
+.ContributionCalendar-day[data-level="3"] {
+  fill: #299bc4;
+}
+
+.ContributionCalendar-day[data-level="4"] {
+  fill: #38bdf8;
+}
+
+.contrib-number {
+  color: var(--text-muted) !important;
+}
