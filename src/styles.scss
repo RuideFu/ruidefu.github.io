@@ -25,10 +25,7 @@ $theme: mat.define-theme((color: (theme-type: light,
 @include tokens.init-tokens();
 
 
-html,
-body {
-  height: 100%;
-}
+/* html, body height 100% removed to allow natural scrolling */
 
 body {
   margin: 0;
@@ -38,9 +35,7 @@ body {
   line-height: 1.6;
 }
 
-body.dark,
-body.dark .sidenav-container,
-body.dark .mat-drawer-container {
+body.dark {
   background-color: #141313;
   color: #e5e2e1;
 }
@@ -49,6 +44,14 @@ body.dark .mat-drawer-container {
 mat-toolbar {
   background-color: var(--mat-sys-primary) !important;
   color: var(--mat-sys-on-primary) !important;
+}
+
+.main-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
 }
 
 mat-toolbar .mat-icon {
@@ -60,11 +63,7 @@ mat-toolbar span {
   color: var(--mat-sys-on-primary) !important;
 }
 
-/* SIDENAV STYLES */
-.sidenav {
-  background-color: var(--mat-sys-surface-container) !important;
-  border-right: 1px solid var(--mat-sys-outline-variant);
-}
+/* MENU/NAVIGATION IS NOW HANDLED BY Navigation COMPONENT */
 
 /* DARK MODE OVERRIDES */
 body.dark mat-toolbar {
@@ -80,19 +79,6 @@ body.dark mat-toolbar span {
   color: #e5e2e1 !important;
 }
 
-body.dark .sidenav {
-  background-color: #1c1b1b !important;
-  border-right: 1px solid #46464b;
-}
-
-/* SIDENAV TEXT COLORS */
-.sidenav .mdc-list-item__primary-text {
-  color: var(--mat-sys-on-surface) !important;
-}
-
-body.dark .sidenav .mdc-list-item__primary-text {
-  color: #e5e2e1 !important;
-}
 
 * {
   box-sizing: border-box;
@@ -119,7 +105,7 @@ ul {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 6rem 1.5rem 2rem 1.5rem;
 }
 
 /* HEADER */
@@ -439,5 +425,9 @@ body.dark footer {
 body.dark .tag,
 body.dark .skill-tags span {
   background-color: #3c4568 !important;
+  color: #e5e2e1 !important;
+}
+
+body.dark .mdc-list-item__primary-text {
   color: #e5e2e1 !important;
 }

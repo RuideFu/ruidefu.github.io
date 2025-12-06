@@ -4,18 +4,18 @@ import { isPlatformBrowser, DOCUMENT, AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { Navigation } from './navigation';
 
 declare const GitHubCalendar: any;
 declare const tippy: any;
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, AsyncPipe],
+  imports: [RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, AsyncPipe, Navigation],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -26,6 +26,7 @@ export class App implements AfterViewInit {
 
   protected readonly title = signal('r-fu-dot-com');
   protected readonly isDarkMode = signal(false);
+  protected readonly menuOpen = signal(false);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -47,6 +48,10 @@ export class App implements AfterViewInit {
 
   toggleTheme() {
     this.isDarkMode.update(dark => !dark);
+  }
+
+  toggleMenu() {
+    this.menuOpen.update(open => !open);
   }
 
   private _updateTheme(isDark: boolean) {
