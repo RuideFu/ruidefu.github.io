@@ -1,0 +1,11 @@
+<div class="blog-container">
+  <h1>Blog Posts</h1>
+  <div class="post-list">
+    <div *ngFor="let post of posts$ | async" class="post-card">
+      <h2>{{ post.title }}</h2>
+      <p class="date">{{ post.date | date }}</p>
+      <p class="summary">{{ post.summary }}</p>
+      <a [routerLink]="['/blog', post.slug]" class="read-more">Read more</a>
+    </div>
+  </div>
+</div>

@@ -2,12 +2,15 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
 
+import { provideHttpClient, withFetch } from '@angular/common/http';
+
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideAnimationsAsync(),
-    provideRouter(routes)
+    provideRouter(routes),
+    provideHttpClient(withFetch())
   ]
 };

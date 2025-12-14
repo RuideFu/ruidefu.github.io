@@ -1,19 +1,24 @@
 import { Component, input, output } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [MatListModule, CommonModule],
+  imports: [MatListModule, MatDividerModule, CommonModule, RouterLink],
   template: `
     <div class="nav-overlay" [class.open]="isOpen()" (click)="close.emit()">
       <div class="nav-content" (click)="$event.stopPropagation()">
         <mat-nav-list>
-          <a mat-list-item href="#education" (click)="close.emit()">Education</a>
-          <a mat-list-item href="#skills" (click)="close.emit()">Skills</a>
-          <a mat-list-item href="#experience" (click)="close.emit()">Experience</a>
-          <a mat-list-item href="#publications" (click)="close.emit()">Publications</a>
+          <a mat-list-item routerLink="/" (click)="close.emit()">Home</a>
+          <a mat-list-item routerLink="/blog" (click)="close.emit()">Blog</a>
+          <mat-divider></mat-divider>
+          <a mat-list-item href="/#education" (click)="close.emit()">Education</a>
+          <a mat-list-item href="/#skills" (click)="close.emit()">Skills</a>
+          <a mat-list-item href="/#experience" (click)="close.emit()">Experience</a>
+          <a mat-list-item href="/#publications" (click)="close.emit()">Publications</a>
         </mat-nav-list>
       </div>
     </div>

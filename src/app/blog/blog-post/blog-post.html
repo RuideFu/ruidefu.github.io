@@ -1,0 +1,6 @@
+<div class="blog-post" *ngIf="post$ | async as post">
+    <h1>{{ post.title }}</h1>
+    <p class="date">{{ post.date | date }}</p>
+    <div class="content" [innerHTML]="sanitize(post.content || '')"></div>
+    <a routerLink="/blog" class="back-link">← Back to Blog</a>
+</div>
