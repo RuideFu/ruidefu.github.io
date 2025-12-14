@@ -28,6 +28,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build -- --configuration production
+      - name: Copy index.html to 404.html
+        run: cp dist/r-fu-dot-com/browser/index.html dist/r-fu-dot-com/browser/404.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
