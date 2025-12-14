@@ -6,8 +6,10 @@ draft: false
 summary: "A reflection on the mathematical definition of matrix rank, inspired by a YouTube short."
 ---
 
-I saw a YouTube short the other day, the interviewer was asking random college students five questions related to their major. And one of the questions for a math major was: “what is the rank (of a matrix)?”
+I saw a Instagram post the other day, the interviewer was asking random college students five questions related to their major. And one of the questions for a math major was: “what is the rank (of a matrix)?”
 
+![instagram Post](../assets/rank-definition/ig.png)
+[Screenshot of the IG Post where a college student is being interviewed](https://www.instagram.com/reel/DRpeGp9Cf2l/)
 
 The interviewee couldn’t answer on the spot, though she claimed to have known it at one point. As a former math major, I feel like I should know the answer, but I couldn’t recall the exact definition either.
 
@@ -24,6 +26,8 @@ And RREF has two more conditions:
 
 - The leading entry in each nonzero row is 1 (called a leading one).
 - Each column containing a leading 1 has zeros in all its other entries.
+
+![RREF Example](../assets/rank-definition/rref.svg)
 
 Something doesn’t sit right with me. Using Gaussian Elimination (row operations) to find RREF is just the algorithm to _compute_ rank; but there must be an actual mathematical meaning to the concept itself.
 

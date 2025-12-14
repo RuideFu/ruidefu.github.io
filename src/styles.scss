@@ -431,3 +431,8 @@ body.dark .skill-tags span {
 body.dark .mdc-list-item__primary-text {
   color: #e5e2e1 !important;
 }
+
+/* Invert SVG colors in dark mode for blog posts */
+body.dark .blog-post .content img[src$=".svg"] {
+  filter: invert(1);
+}
