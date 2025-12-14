@@ -38,9 +38,14 @@ files.forEach(file => {
     // Create slug from filename (e.g. "my-post.md" -> "my-post")
     const slug = path.basename(file, '.md');
 
+    // Extract first image if available
+    const imageMatch = htmlContent.match(/<img[^>]+src="([^">]+)"/);
+    const image = imageMatch ? imageMatch[1] : null;
+
     posts.push({
       ...data,
       slug: slug,
+      image: image,
       content: htmlContent,
       // Create a clean URL for router
       url: `/blog/${slug}`

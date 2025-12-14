@@ -10,6 +10,7 @@ export interface BlogPost {
   summary?: string;
   subtitle?: string;
   content?: string;
+  image?: string;
 }
 
 export interface BlogListResponse {
