@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
-const { marked } = require('marked');
+const md = require('markdown-it')({ html: true });
 
 const contentDir = path.join(__dirname, '../content/posts');
 const outputDir = path.join(__dirname, '../src/assets');
@@ -33,7 +33,7 @@ files.forEach(file => {
     }
 
     // Convert markdown to HTML
-    const htmlContent = marked.parse(content);
+    const htmlContent = md.render(content);
     
     // Create slug from filename (e.g. "my-post.md" -> "my-post")
     const slug = path.basename(file, '.md');

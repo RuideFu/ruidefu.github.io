@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BlogService, BlogPost } from '../../services/blog.service';
@@ -10,7 +10,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './blog-post.html',
-  styleUrl: './blog-post.css'
+  styleUrl: './blog-post.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class BlogPostComponent implements OnInit {
   post$: Observable<BlogPost> | undefined;

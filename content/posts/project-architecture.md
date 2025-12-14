@@ -1,46 +1,51 @@
 ---
-title: "Building a Modern Portfolio: Angular + Headless Hugo"
+title: "Building a Modern Portfolio: Angular + Node.js"
 date: 2024-12-14T15:00:00-05:00
 draft: false
-summary: "A deep dive into the architecture of this website, featuring Angular 19, Headless Hugo, and a custom JSON API."
+summary: "A deep dive into the architecture of this website, featuring Angular 19, a custom Node.js content pipeline, and Docker."
 ---
 
-Welcome to my new portfolio site! This project represents a modern approach to static site generation, combining the component-based architecture of **Angular** with the blazing-fast content management of **Hugo**.
+Welcome to my new portfolio site! This project represents a modern approach to static site generation, combining the component-based architecture of **Angular** with a lightweight **Node.js** content pipeline.
 
 ## The Architecture
 
-The core philosophy behind this project is **separation of concerns**. The frontend content delivery is decoupled from content management, allowing each text stack to do what it does best.
+The core philosophy behind this project is **simplicity and control**. Instead of relying on heavy static site generators, we use a custom script to process content.
 
 ### 1. Angular Frontend
 The user interface is built with **Angular**, utilizing the latest features like **Signals** and **Standalone Components**. 
+
 - **Navigation**: Client-side routing with the Angular Router ensures instant page transitions.
 - **Material Design**: Angular Material provides a robust, accessible component library.
 - **Data Fetching**: The `BlogService` uses Angular's `HttpClient` to fetch content dynamically.
 
-### 2. Headless Hugo
-Instead of using Hugo to render full HTML pages, we configure it as a **Headless CMS**.
-- **Content**: All blog posts are written in Markdown.
-- **Output**: Custom layouts in `layouts/_default/` allow Hugo to output **JSON** instead of HTML.
-  - `index.json`: Returns a list of all posts with metadata.
-  - `single.json`: Returns the full content of an individual post.
-  
-This allows us to treat the filesystem as a database.
+### 2. Node.js Content Pipeline
+We replaced the traditional CMS with a simple **Node.js script**.
+
+- **Content**: All blog posts are written in standard **Markdown** in the `content/posts` directory.
+- **Processing**: A custom script (`scripts/generate-content.js`) parses these files using:
+  - `gray-matter`: To extract frontmatter metadata (title, date, summary).
+  - `marked`: To convert Markdown body text into HTML.
+- **Output**: The script generates a single `src/assets/blog-data.json` file containing all posts.
 
 ### 3. The Data Flow
 1. **Write**: Content is authored in Markdown.
-2. **Build**: Hugo compiles the content into JSON files in the `public/` directory.
-3. **Serve**: The Angular dev server (or a production web server) serves these static JSON files.
-4. **Consume**: The Angular app requests `index.json` to build the blog list and `posts/{slug}/index.json` to render the article.
+2. **Build**: 
+   - `npm start` or `npm run build` triggers the content generation script.
+   - The script compiles Markdown -> JSON.
+3. **Serve**: The Angular dev server serves the app and the `assets/blog-data.json` file.
+4. **Consume**: The Angular app loads the JSON file to display the blog list and individual articles.
 
 ## Deployment
 The entire environment is containerized using **Docker**.
-- A custom `Dockerfile` installs Node.js, Angular CLI, and Hugo Extended.
-- This ensures consistency across development and deployment environments (no more "it works on my machine"!).
+
+- A custom `Dockerfile` installs Node.js and Angular CLI.
+- It ensures consistency across development and deployment environments (no more "it works on my machine"!).
 
 ## Why this stack?
 This setup offers the best of both worlds:
-- **Developer Experience**: I can use Angular's powerful tooling for UI development.
-- **Content Management**: writing in Markdown is simple, portable, and version-controllable.
-- **Performance**: The final result is a static site that can be hosted anywhere (GitHub Pages, Netlify, S3) with zero backend maintenance.
 
-Feel free to explore the code on [GitHub](https://github.com/RuideFu/temp-personal)!
+- **Developer Experience**: I use standard tools (Node.js, Angular) without needing to learn a specific SSG's template language.
+- **Control**: The content generation logic is just 50 lines of JavaScript, fully customizable.
+- **Performance**: The entire blog database is a tiny JSON file, loaded instantly.
+
+Feel free to explore the code on [GitHub](https://github.com/RuideFu/ruidefu.github.io)!

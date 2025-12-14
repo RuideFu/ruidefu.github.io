@@ -41,7 +41,7 @@
     "@angular/compiler-cli": "^21.0.0",
     "gray-matter": "^4.0.3",
     "jsdom": "^27.1.0",
-    "marked": "^17.0.1",
+    "markdown-it": "^14.1.0",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
   }

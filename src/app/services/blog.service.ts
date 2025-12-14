@@ -8,6 +8,7 @@ export interface BlogPost {
   url: string;
   slug: string;
   summary?: string;
+  subtitle?: string;
   content?: string;
 }
 
