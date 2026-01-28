@@ -1,0 +1,131 @@
+{
+  "education_outreach": {
+    "items": [
+      {
+        "title": "ASTR 100L Instructor",
+        "date": "Fall 2025, Spring 2026",
+        "description": "Led lab sections for ASTR 100L, an introductory astronomy course."
+      },
+      {
+        "title": "ERIRA Instructor (Green Bank Observatory)",
+        "url": "https://www.danreichart.com/erira",
+        "date": "August 2025, June 2024, August 2025",
+        "description": "Instructed students on 40ft/20m radio telescopes. Led undergraduate research teams in instrumentation and software projects."
+      },
+      {
+        "title": "Morehead Guest Night Operator",
+        "url": "https://skynet.unc.edu/guestnight",
+        "date": "Fall 2022 - Present",
+        "description": "Bi-weekly science outreach, operating telescopes, and explaining astronomy research to the public."
+      }
+    ]
+  },
+  "experience": {
+    "items": [
+      {
+        "title": "Skynet 2.0",
+        "role": "Software Engineer (Radio Lead)",
+        "date": "Apr 2024 - Present",
+        "url": "https://next.skynet.unc.edu",
+        "description": "Leading the radio astronomy development for Skynet 2.0.\nDesigned a scalable architecture for new sites/instruments and models to generalize radio astronomy hardware.\nImplemented a web interface for radio observation.\nCurrently working on single dish radio mapping path computation and optimization.\n",
+        "tags": [
+          "System Design",
+          "API",
+          "Web Dev"
+        ]
+      },
+      {
+        "title": "Astromancer",
+        "role": "Lead Developer",
+        "date": "May 2023 - Dec 2023",
+        "url": "https://astromancer.skynet.unc.edu",
+        "github": "https://github.com/SkynetRTN/astromancer",
+        "description": "A complete reimagination of the Skynet Plotting Tool. Designed a modular, scalable architecture and improved accessibility. Serving 4,900+ users since Fall 2023.\n",
+        "tags": [
+          "Software Architecture",
+          "UX/UI"
+        ]
+      },
+      {
+        "title": "Astronomicon",
+        "role": "Lead Developer",
+        "date": "Jan 2024 - Mar 2024",
+        "description": "Designed architecture and oversaw development of a web-based citizen science platform. Allows users to contribute analysis results from Astromancer to a collective database.\n",
+        "tags": [
+          "Citizen Science",
+          "Full Stack",
+          "Database"
+        ]
+      },
+      {
+        "title": "Radio Cartographer",
+        "role": "Developer",
+        "date": "Dec 2022",
+        "github": "https://github.com/SkynetRTN/radio-cartographer",
+        "description": "Updated radio cartography algorithms for single-dish maps. Implemented data management services to transfer radio map data from Green Bank Observatory to UNC Skynet.\n",
+        "tags": [
+          "Algorithm Optimization",
+          "Data Management"
+        ]
+      },
+      {
+        "title": "Gamma Ray Burst Followup",
+        "role": "Researcher",
+        "date": "Aug 2023",
+        "description": "Conducted rapid-response observations of GRBs detected by NASA's SWIFT spacecraft using Skynet. Collaborated with the team to contribute to NASA's General Coordinate Network (GCN).\n",
+        "tags": [
+          "Observational Astronomy",
+          "NASA GCN"
+        ]
+      },
+      {
+        "title": "Bing Wallpaper for Mac with GUI",
+        "role": "Personal Project",
+        "date": "June 2021",
+        "github": "https://github.com/RuideFu/Bing-Wallpaper-For-Mac-4K-with-GUI",
+        "description": "A desktop client (menubar app) of Bing Wallpaper for MacOS, written in Swift.\n",
+        "tags": [
+          "Swift",
+          "MacOS",
+          "GUI"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "categories": [
+      {
+        "name": "Proficient Languages",
+        "items": [
+          "Python",
+          "C",
+          "TypeScript",
+          "Java",
+          "SQL",
+          "Shell",
+          "LaTeX"
+        ]
+      },
+      {
+        "name": "Software & Tools",
+        "items": [
+          "Git",
+          "Docker",
+          "Angular",
+          "API Design",
+          "Fusion360",
+          "Adobe Suite"
+        ]
+      },
+      {
+        "name": "Domain Knowledge",
+        "items": [
+          "Radio Astronomy",
+          "Telescope Networks",
+          "Data Visualization",
+          "Hardware Prototyping"
+        ]
+      }
+    ]
+  }
+}

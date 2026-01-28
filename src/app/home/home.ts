@@ -1,19 +1,76 @@
-import { Component, AfterViewInit, inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { Component, AfterViewInit, inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { isPlatformBrowser, DOCUMENT, CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { map, shareReplay } from 'rxjs/operators';
 
 declare const GitHubCalendar: any;
 declare const tippy: any;
 
+interface SkillCategory {
+  name: string;
+  items: string[];
+}
+interface SkillsData {
+  categories: SkillCategory[];
+}
+
+interface ExperienceItem {
+  title: string;
+  role: string;
+  date: string;
+  url?: string;
+  github?: string;
+  description: string;
+  tags?: string[];
+}
+interface ExperienceData {
+  items: ExperienceItem[];
+}
+
+interface EducationOutreachItem {
+  title: string;
+  date: string;
+  description: string;
+  url?: string;
+}
+interface EducationOutreachData {
+  items: EducationOutreachItem[];
+}
+
+interface HomeData {
+  skills?: SkillsData;
+  experience?: ExperienceData;
+  education_outreach?: EducationOutreachData;
+}
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
-export class Home implements AfterViewInit {
+export class Home implements AfterViewInit, OnInit {
   private readonly _platformId = inject(PLATFORM_ID);
   private readonly _document = inject(DOCUMENT);
+  private http = inject(HttpClient);
+
+  homeData$ = this.http.get<HomeData>('assets/home-data.json').pipe(shareReplay(1));
+
+  skills$ = this.homeData$.pipe(
+    map(data => data.skills?.categories || [])
+  );
+
+  experience$ = this.homeData$.pipe(
+    map(data => data.experience?.items || [])
+  );
+
+  educationOutreach$ = this.homeData$.pipe(
+    map(data => data.education_outreach?.items || [])
+  );
+
+  ngOnInit() {
+  }
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this._platformId)) {

@@ -1,0 +1,11 @@
+[[categories]]
+name = "Proficient Languages"
+items = ["Python", "C", "TypeScript", "Java", "SQL", "Shell", "LaTeX"]
+
+[[categories]]
+name = "Software & Tools"
+items = ["Git", "Docker", "Angular", "API Design", "Fusion360", "Adobe Suite"]
+
+[[categories]]
+name = "Domain Knowledge"
+items = ["Radio Astronomy", "Telescope Networks", "Data Visualization", "Hardware Prototyping"]

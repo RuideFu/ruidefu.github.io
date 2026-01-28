@@ -1,0 +1,61 @@
+[[items]]
+title = "Skynet 2.0"
+role = "Software Engineer (Radio Lead)"
+date = "Apr 2024 - Present"
+url = "https://next.skynet.unc.edu"
+description = """
+Leading the radio astronomy development for Skynet 2.0.
+Designed a scalable architecture for new sites/instruments and models to generalize radio astronomy hardware.
+Implemented a web interface for radio observation.
+Currently working on single dish radio mapping path computation and optimization.
+"""
+tags = ["System Design", "API", "Web Dev"]
+
+[[items]]
+title = "Astromancer"
+role = "Lead Developer"
+date = "May 2023 - Dec 2023"
+url = "https://astromancer.skynet.unc.edu"
+github = "https://github.com/SkynetRTN/astromancer"
+description = """
+A complete reimagination of the Skynet Plotting Tool. Designed a modular, scalable architecture and improved accessibility. Serving 4,900+ users since Fall 2023.
+"""
+tags = ["Software Architecture", "UX/UI"]
+
+[[items]]
+title = "Astronomicon"
+role = "Lead Developer"
+date = "Jan 2024 - Mar 2024"
+description = """
+Designed architecture and oversaw development of a web-based citizen science platform. Allows users to contribute analysis results from Astromancer to a collective database.
+"""
+tags = ["Citizen Science", "Full Stack", "Database"]
+
+[[items]]
+title = "Radio Cartographer"
+role = "Developer"
+date = "Dec 2022"
+github = "https://github.com/SkynetRTN/radio-cartographer"
+description = """
+Updated radio cartography algorithms for single-dish maps. Implemented data management services to transfer radio map data from Green Bank Observatory to UNC Skynet.
+"""
+tags = ["Algorithm Optimization", "Data Management"]
+
+[[items]]
+title = "Gamma Ray Burst Followup"
+role = "Researcher"
+date = "Aug 2023"
+description = """
+Conducted rapid-response observations of GRBs detected by NASA's SWIFT spacecraft using Skynet. Collaborated with the team to contribute to NASA's General Coordinate Network (GCN).
+"""
+tags = ["Observational Astronomy", "NASA GCN"]
+
+[[items]]
+title = "Bing Wallpaper for Mac with GUI"
+role = "Personal Project"
+date = "June 2021"
+github = "https://github.com/RuideFu/Bing-Wallpaper-For-Mac-4K-with-GUI"
+description = """
+A desktop client (menubar app) of Bing Wallpaper for MacOS, written in Swift.
+"""
+tags = ["Swift", "MacOS", "GUI"]

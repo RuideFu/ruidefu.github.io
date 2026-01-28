@@ -42,6 +42,7 @@
     "gray-matter": "^4.0.3",
     "jsdom": "^27.1.0",
     "markdown-it": "^14.1.0",
+    "smol-toml": "^1.6.0",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
   }
