@@ -48,7 +48,7 @@ interface HomeData {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrl: './home.scss'
 })
 export class Home implements AfterViewInit, OnInit {
   private readonly _platformId = inject(PLATFORM_ID);
