@@ -64,6 +64,27 @@ If you prefer to run directly on your host machine:
 - `docker-compose.yml`: Docker services configuration.
 - `Dockerfile`: Definition for the development container.
 
+## Content Management
+
+The content for the home page (skills, experience, education) and blog posts is managed via files in the `content/` directory:
+- **Home Content**: `content/home/*.toml`
+- **Blog Posts**: `content/posts/*.md`
+
+The application requires a JSON generation step to convert these files into assets that the Angular app can consume (`src/assets/home-data.json` and `src/assets/blog-data.json`).
+
+ **Changes to content files require re-running the generation script.**
+
+The build and serve commands are configured to run this automatically:
+```bash
+npm start # runs generation script then ng serve
+npm run build # runs generation script then ng build
+```
+
+To manually regenerate the content (e.g., if you edited a file while the server is running):
+```bash
+node scripts/generate-content.js
+```
+
 ## Building
 
 To build the project for production:
