@@ -83,8 +83,8 @@ export class Home implements AfterViewInit, OnInit {
 
         // REMOVE NATIVE TITLES to prevent double tooltips
         const xpaths = [
-          "/html/body/div/section[2]/div[2]/div[2]/div[1]/a",
-          "/html/body/div/section[2]/div[2]/div[2]/div[1]/div/div/div[1]/table/caption"];
+          "/html/body/app-root/div/app-home/section[2]/div[2]/div[2]/div[1]/a",
+          "/html/body/app-root/div/app-home/section[2]/div[2]/div[2]/div[1]/div/div/div[1]/table/caption"];
         // remove xpath element if it exists
         xpaths.forEach(xpath => {
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue as Element;
